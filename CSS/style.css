@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Warna Tema */
+:root {
+    --primary-dark: rgba(0, 0, 0, 0.1);
+    --kimi-white: #ffffff;
+    --card-hover-bg: rgba(255, 255, 255, 0.15); /* Tambahin warna baru buat hover */
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem; /* Jarak antara simbol dan nama */
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--kimi-white);
+}
+
+/* Simbol Logo Kustom */
+.logo-symbol {
+    width: 30px;
+    height: 30px;
+    background-color: var(--kimi-white);
+    color: black;
+    border-radius: 50%; /* Bikin bulat */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+body {
+    background-color: black;
+    color: var(--kimi-white);
+    min-height: 100vh; /* DIBAIKI: dari 100hv jadi 100vh */
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Container Utama agar semua bagian rata */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    background-color: var(--primary-dark);
+    padding: 1.2rem 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--kimi-white);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-menu a {
+    color: var(--kimi-white);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.btn-login {
+    background-color: var(--kimi-white);
+    color: black;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 0.95rem;
+}
+
+/* Responsif Header HP */
+@media (max-width: 576px) {
+    .nav-menu a {
+        font-size: 0.8rem;
+    }
+    .logo {
+        font-size: 1.2rem;
+    }
+    .btn-login {
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background: url('../Images/hero-kimi-bg.jpg') center/cover no-repeat;
+    background-color: rgba(10, 36, 99, 0.2);
+    padding: 3rem 15px;
+    border-radius: 8px;
+    margin: 0 auto 1rem;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    max-width: 100%;
+    padding: 0;
+    color: var(--kimi-white);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
+}
+
+.hero p {
+    font-size: 0.95rem;
+    color: var(--kimi-white);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
+}
+
+/* Categories Section - DIPERBAIKI & DITAMBAHKAN */
+.categories {
+    background-color: var(--primary-dark);
+    padding: 2rem 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.categories h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--kimi-white);
+    transition: all 0.3s ease; /* Tambahin transisi agar animasi halus */
+}
+
+.categories h2:hover {
+    transform: translateY(-5px); /* DIBAIKI: dari -8px jadi -5px agar tidak terlalu jauh */
+    text-shadow: 0 5px 10px rgba(255, 255, 255, 0.2); /* Tambahin bayangan teks */
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* DIBAIKI: ukuran minimal lebih pas */
+    gap: 1.2rem; /* Tambahin jarak antar kartu */
+}
+
+.category-card {
+    background: rgba(255,255,255,0.1);
+    padding: 1.5rem 1.2rem; /* Tambahin padding agar kartu lebih besar */
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease; /* Tambahin transisi untuk animasi keseluruhan kartu */
+}
+
+.category-card:hover {
+    transform: translateY(-5px); /* Animasi naik saat di-hover */
+    background-color: var(--card-hover-bg); /* Warna lebih terang saat di-hover */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1); /* Tambahin bayangan */
+}
+
+.category-card .card-icon {
+    font-size: 2rem; /* DIBAIKI: ukuran ikon lebih besar */
+    color: var(--kimi-white);
+    margin-bottom: 0.8rem; /* Tambahin jarak bawah ikon */
+    transition: all 0.3s ease; /* Tambahin transisi ikon */
+}
+
+.category-card:hover .card-icon {
+    transform: scale(1.15); /* DIBAIKI: skala lebih pas */
+}
+
+.category-card h3 {
+    font-size: 1.05rem; /* DIBAIKI: ukuran judul lebih jelas */
+    margin-bottom: 0.5rem; /* Tambahin jarak bawah judul */
+    font-weight: 600;
+}
+
+.category-card p {
+    font-size: 0.82rem; /* DIBAIKI: ukuran teks lebih mudah dibaca */
+    color: rgba(255,255,255,0.8);
+    line-height: 1.3; /* Tambahin jarak antar baris teks */
+}
+
+/* Featured Product */
+.featured-product {
+    background-color: var(--primary-dark);
+    padding: 2rem 15px;
+    max-width: 900px;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+}
+
+.featured-product h2 {
+    font-size: 1.5rem;
+    color: var(--kimi-white);
+    margin-bottom: 1.8rem;
+    transition: all 0.3 ease;
+}
+
+.featured-product h2:hover {
+    transform: translateY(-5px);
+    text-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
+}
+
+.product-card {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap; /* Tambahin agar responsif di HP */
+    background: rgba(255, 255, 255, 0.5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.product-card :hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 380px; 
+    border-radius: 8px;
+    transition: transform 0.3s ease; /*animasi untuk gambar*/
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-card:hover img {
+    transform: scale(1.02);
+}
+
+.product-info {
+    flex: 1;
+    min-width: 250px; /* Tambahin agar tidak terlalu kecil di HP */
+}
+
+.product-info h3 {
+    color: var(--kimi-white);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.product-info p {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 0.98rem;
+}
+
+.btn-primary {
+    background-color: #3E92CC;
+    color: var(--kimi-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Tambahin transisi tombol */
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #2A7AB0; /* Warna lebih gelap saat di-hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(62, 146, 204, 0.3);
+}
+
+/*Responsif untuk HP*/
+@media (max-widht: 576px) {
+    .product-card {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .product-info h3 {
+        font-size: 1,2rem;
+    }
+
+    .btn-primary {
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+}
+
+/* Trending Section */
+.trending {
+    background-color: var(--primary-dark);
+    padding: 2rem 15px;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+}
+
+.trending h2 {
+    color: var(--kimi-white);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease; /* Tambahin transisi */
+}
+
+.trending h2:hover {
+    transform: translateY(-5px);
+    text-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
+}
+
+.trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.trending-card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.trending-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
+}
+
+.trending-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* DIBAIKI: dari 0,3s jadi 0.3s */
+}
+
+.trending-card:hover img {
+    transform: scale(1.05);
+}
+
+.trending-card h3 {
+    color: var(--kimi-white);
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+.trending-card p {
+    color: rgba(255,255,255,0.8);
+    padding: 0 0.8rem 1rem;
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-dark);
+    padding: 2rem 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links a {
+    color: var(--kimi-white);
+    text-decoration: none;
+    margin: 0 0.8rem;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.social-icons {
+    margin: 1.5rem 0;
+}
+
+.social-icons a {
+    color: var(--kimi-white);
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+}

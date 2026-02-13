@@ -1,0 +1,8 @@
+# File yang tidak perlu diunggah
+.DS_Store
+Thumbs.db
+*.log
+node_modules
+dist/
+build/
+.vscode/

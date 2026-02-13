@@ -7,7 +7,7 @@
     scroll-behavior: smooth; /* Biar scroll halus */
 }
 
-/* WARNA TEMA SAMA */
+/* WARNA TEMA */
 :root {
     --primary-color: #00A8FF; /* Warna utama */
     --secondary-color: #F0F8FF; /* Warna background */
@@ -44,7 +44,7 @@
 }
 
 .logo-text span {
-    color: var(--primary-color); /* Warna aksen sama */
+    color: var(--primary-color);
 }
 
 .nav-links a {
@@ -122,7 +122,7 @@
 
 .project-card {
     background-color: var(--white);
-    border-radius: 10px; /* Sudut melengkung sama */
+    border-radius: 10px; /* Sudut melengkung */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -158,7 +158,7 @@
     color: var(--white);
     border: none;
     padding: 0.8rem 1.5rem;
-    border-radius: 8px; /* Sudut sama */
+    border-radius: 8px; /* Sudut */
     text-decoration: none;
     margin-right: 1rem;
     transition: background-color 0.3s ease;

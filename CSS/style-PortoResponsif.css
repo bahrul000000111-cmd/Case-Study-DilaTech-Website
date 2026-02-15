@@ -1,36 +1,48 @@
-/* ===== CSS ===== */
+/* ===== CSS PORTFOLIO ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    scroll-behavior: smooth; /* Biar scroll halus */
+    scroll-behavior: smooth;
 }
 
 /* WARNA TEMA */
 :root {
-    --primary-color: #00A8FF; /* Warna utama */
-    --secondary-color: #F0F8FF; /* Warna background */
-    --text-color: #333333; /* Warna teks utama */
-    --light-text: #666666;
-    --white: #FFFFFF;
+    --primary-color: #00A8FF;     
+    --secondary-color: #F0F8FF;   
+    --text-color: #333333;        
+    --light-text: #666666;        
+    --white: #FFFFFF;             
+}
+
+/* ===== CONTAINER RESPONSIF - Untuk semua section ===== */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Container untuk layar besar */
+@media (min-width: 769px) {
+    .container {
+        padding: 0 2rem;
+    }
 }
 
 /* ===== NAVBAR/HEADER ===== */
 .navbar {
     background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed; /* Tetap di atas saat scroll */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999; /* Di atas semua elemen */
+    z-index: 999;
 }
 
 .navbar .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,17 +64,18 @@
     text-decoration: none;
     margin-left: 2rem;
     font-weight: 500;
-    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
+    transition: color 0.3s ease; /* Hanya transisi warna saat hover */
 }
 
 .hamburger {
-    display: none; /* Sembunyi dulu di layar besar */
+    display: none;
     flex-direction: column;
     gap: 5px;
+    cursor: pointer;
 }
 
 .hamburger .bar {
@@ -72,70 +85,80 @@
     border-radius: 5px;
 }
 
-
 /* ===== HERO SECTION ===== */
 .hero {
     background-color: var(--secondary-color);
-    padding: 8rem 2rem 4rem; /* Jarak pas */
+    padding: 8rem 1rem 4rem;
     text-align: center;
-    margin-top: 80px; /* Biar gak tertutup navbar */
+    margin-top: 80px; /* Hindari tertutup navbar */
+}
+
+.hero .container {
+    max-width: 800px; /* Batas lebar teks agar mudah dibaca */
 }
 
 .hero h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--text-color);
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--light-text);
-    margin-bottom: 2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
+.hero .btn {
+    display: inline-block;
+    margin-top: 1rem;
+}
 
 /* ===== SECTION PROYEK ===== */
 .projects-section {
-    padding: 4rem 2rem;
-    max-width: 1200px;
+    padding: 4rem 1rem;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 .section-title {
     font-size: 2rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: var(--text-color);
 }
 
 .section-subtitle {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     color: var(--light-text);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsif otomatis */
+    display: flex;
+    flex-wrap: wrap;
     gap: 2.5rem;
+    justify-content: center; /* Selalu rata tengah agar rapi */
 }
 
 .project-card {
     background-color: var(--white);
-    border-radius: 10px; /* Sudut melengkung */
+    border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-10px); /* Efek naik kecil saat hover */
+    width: calc((100% - 5rem) / 3);
+    min-width: 300px;
+    max-width: 380px; /* Batas maksimal agar tidak terlalu besar */
 }
 
 .project-img img {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* Biar gambar tidak terpotong */
+    object-fit: cover; /* Gambar tidak terpotong atau membesar */
 }
 
 .project-info {
@@ -143,7 +166,7 @@
 }
 
 .project-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
     color: var(--text-color);
 }
@@ -151,16 +174,31 @@
 .project-desc {
     color: var(--light-text);
     margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
 
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* ===== TOMBOL - Konsisten di semua bagian ===== */
 .btn {
     background-color: var(--primary-color);
     color: var(--white);
-    border: none;
     padding: 0.8rem 1.5rem;
-    border-radius: 8px; /* Sudut */
+    border-radius: 8px;
     text-decoration: none;
-    margin-right: 1rem;
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0088CC; /* Warna sedikit lebih gelap saat hover */
     transition: background-color 0.3s ease;
 }
 
@@ -168,30 +206,34 @@
     background-color: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
-}
-
-.btn:hover {
-    background-color: #0088CC; /* Warna lebih gelap saat hover */
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .btn-outline:hover {
     background-color: var(--primary-color);
     color: var(--white);
+    transition: all 0.3s ease;
 }
 
-
-/* ===== SECTION KONTAK ===== */
+/* ===== SECTION KONTAK - Rapi dan tidak terlalu lebar ===== */
 .contact-section {
-    padding: 4rem 2rem;
+    padding: 4rem 1rem;
     background-color: var(--secondary-color);
 }
 
 .contact-grid {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
+    justify-content: center;
 }
 
 .contact-item {
@@ -200,6 +242,9 @@
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: calc((100% - 4rem) / 3);
+    min-width: 250px;
+    max-width: 350px;
 }
 
 .contact-item h3 {
@@ -207,28 +252,49 @@
     color: var(--text-color);
 }
 
+.contact-item p, 
+.contact-item a {
+    color: var(--light-text);
+    text-decoration: none;
+}
 
-/* ===== FOOTER ===== */
+.contact-item a:hover {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+/* ===== FOOTER - Sesuai lebar layar ===== */
 .footer {
     background-color: var(--text-color);
     color: var(--white);
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 1rem;
+    width: 100%;
 }
 
+/* ===== RESPONSIF UNTUK SEMUA UKURAN LAYAR ===== */
+@media (max-width: 1024px) {
+    .project-card {
+        width: calc((100% - 2.5rem) / 2); /* 2 kartu per baris di tablet */
+    }
+    .contact-item {
+        width: calc((100% - 2rem) / 2);
+    }
+}
 
-/* ===== RESPONSIF UNTUK HP (max-width 768px) ===== */
 @media (max-width: 768px) {
+    /* Navbar untuk HP */
     .nav-links {
-        display: none; /* Sembunyiin menu di HP */
+        display: none;
         position: absolute;
         top: 80px;
         left: 0;
         width: 100%;
         background-color: var(--white);
-        padding: 2rem;
+        padding: 2rem 1rem;
         flex-direction: column;
         gap: 1.5rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
 
     .nav-links.active {
@@ -236,14 +302,27 @@
     }
 
     .hamburger {
-        display: flex; /* Tampilin tombol hamburger */
+        display: flex;
     }
 
+    /* Hero section untuk HP */
     .hero h1 {
-        font-size: 2rem; /* Ukuran teks lebih kecil di HP */
+        font-size: 2rem;
     }
 
-    .projects-grid {
-        grid-template-columns: 1fr; /* Satu kolom aja di HP */
+    /* Proyek untuk HP */
+    .projects-section {
+        padding: 2rem 1rem;
+    }
+
+    .project-card {
+        width: 100%; /* 1 kartu per baris di HP */
+        max-width: 500px;
+    }
+
+    /* Kontak untuk HP */
+    .contact-item {
+        width: 100%;
+        max-width: 500px;
     }
 }
